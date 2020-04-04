@@ -8,8 +8,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class testspring {
     @Test
     public void findall(){
-        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
-        accountservice as = (accountservice) ac.getBean("accountservice");
-        as.findall();
+//        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
+//        accountservice as = (accountservice) ac.getBean("accountservice");
+//        as.findall();
+        int a=1;
+        int b = 1;
+        System.out.println(a==b);
+        
     }
 }

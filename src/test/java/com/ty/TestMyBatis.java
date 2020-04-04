@@ -2,7 +2,9 @@ package com.ty;
 
 
 import com.ty.dao.AccountDao;
+import com.ty.dao.HouseDao;
 import com.ty.domain.Account;
+import com.ty.domain.House;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -44,9 +46,9 @@ public class TestMyBatis {
      */
     @Test
     public void run2() throws Exception {
-        Account account = new Account();
-        account.setUsername("熊大");
-        account.setPassword("323");
+//        Account account = new Account();
+//        account.setUsername("熊大");
+//        account.setPassword("323");
 
         InputStream in = Resources.getResourceAsStream("applicationContext.xml");
         // 创建SqlSessionFactory对象
@@ -54,12 +56,14 @@ public class TestMyBatis {
         // 创建SqlSession对象
         SqlSession session = factory.openSession();
         // 获取到代理对象
-        AccountDao dao = session.getMapper(AccountDao.class);
+//        AccountDao dao = session.getMapper(AccountDao.class);
+        HouseDao hd = session.getMapper(HouseDao.class);
+        List<House> list = hd.findall();
         // 查询所有数据
 //        List<Account> list = dao.findall();
-//        for(Account a : list){
-//            System.out.println(a);
-//        }
+        for(House a : list){
+            System.out.println(a);
+        }
 //        dao.login()
 
 
