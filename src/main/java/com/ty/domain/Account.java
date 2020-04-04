@@ -5,6 +5,7 @@ public class Account {
     private String username;
     private String password;
 
+
     public Integer getId() {
         return id;
     }
@@ -31,10 +32,11 @@ public class Account {
 
     @Override
     public String toString() {
-        return "account{" +
+        return "Account{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+
                 '}';
     }
 }

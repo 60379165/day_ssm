@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>demo</title>
+    <title>添加管理员</title>
     <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
 
 </head>
@@ -21,20 +21,22 @@
 <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
 <%--<script  src="js/bootstrap.min.js"></script>--%>
 <script  src="<c:url value="/js/bootstrap.min.js"/>"></script>
-<h3>修改管理员信息</h3>
+<h3>添加管理员</h3>
 
 <%--<c:forEach var="account" items="${update}">--%>
-<form  method="post" action="../update">
+<form  method="post" action="account/save2">
     <table  class="table">
-    <tr>
-        <td><input type="text" value="${account.id}" name="id" hidden="hidden"></td>
-        <td>用户名：<input type="text" value="${account.username}" name="username"></td>
-        <td>密码：<input type="text" value="${account.password}" name="password"></td>
-       <%-- <td>
-            <a href="../account/update/"+${account.username}>修改</a>
-        </td>--%>
-        <td><input type="submit" value="修改"></td>
-    </tr>
+        <tr>
+
+            <td>用户名：<input type="text" placeholder="请输入用户名" name="username" id="username"></td>
+            <td>密码：<input type="text" placeholder="请输入密码" name="password" id="password"></td>
+
+
+            <%-- <td>
+                 <a href="../account/update/"+${account.username}>修改</a>
+             </td>--%>
+            <td><input type="submit" value="添加"></td>
+        </tr>
     </table>
 </form>
 <%--</c:forEach>--%>

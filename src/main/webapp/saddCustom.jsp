@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>demo</title>
+    <title>添加租户信息</title>
     <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
 
 </head>
@@ -21,20 +21,22 @@
 <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
 <%--<script  src="js/bootstrap.min.js"></script>--%>
 <script  src="<c:url value="/js/bootstrap.min.js"/>"></script>
-<h3>修改管理员信息</h3>
+<h3>添加租户</h3>
 
 <%--<c:forEach var="account" items="${update}">--%>
-<form  method="post" action="../update">
+<form  method="post" action="custom/save2">
     <table  class="table">
-    <tr>
-        <td><input type="text" value="${account.id}" name="id" hidden="hidden"></td>
-        <td>用户名：<input type="text" value="${account.username}" name="username"></td>
-        <td>密码：<input type="text" value="${account.password}" name="password"></td>
-       <%-- <td>
-            <a href="../account/update/"+${account.username}>修改</a>
-        </td>--%>
-        <td><input type="submit" value="修改"></td>
-    </tr>
+        <tr>
+
+            <td>姓名：<input type="text" placeholder="请输入姓名" name="name" id="name"></td>
+            <td>号码：<input type="text" placeholder="请输入号码" name="phone" id="phone"></td>
+            <td>性别：<input type="text" placeholder="请输入性别" name="sex" id="sex"></td>
+            <td>房屋号：<input type="text" placeholder="请输入房屋号" name="hid" id="hid"></td>
+            <%-- <td>
+                 <a href="../account/update/"+${account.username}>修改</a>
+             </td>--%>
+            <td><input type="submit" value="添加"></td>
+        </tr>
     </table>
 </form>
 <%--</c:forEach>--%>

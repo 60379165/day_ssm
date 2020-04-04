@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>demo</title>
+    <title>添加房源信息</title>
     <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
 
 </head>
@@ -21,20 +21,23 @@
 <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
 <%--<script  src="js/bootstrap.min.js"></script>--%>
 <script  src="<c:url value="/js/bootstrap.min.js"/>"></script>
-<h3>修改管理员信息</h3>
+<h3>添加房源</h3>
 
 <%--<c:forEach var="account" items="${update}">--%>
-<form  method="post" action="../update">
+<form  method="post" action="house/save">
     <table  class="table">
-    <tr>
-        <td><input type="text" value="${account.id}" name="id" hidden="hidden"></td>
-        <td>用户名：<input type="text" value="${account.username}" name="username"></td>
-        <td>密码：<input type="text" value="${account.password}" name="password"></td>
-       <%-- <td>
-            <a href="../account/update/"+${account.username}>修改</a>
-        </td>--%>
-        <td><input type="submit" value="修改"></td>
-    </tr>
+        <tr>
+
+            <td>金额：<input type="text" placeholder="请输入金额" name="price" id="price"></td>
+            <td>尺寸：<input type="text" placeholder="请输入房源大小" name="size" id="size"></td>
+            <td>状态：<input type="text" placeholder="请输入房源状态" name="state" id="state"></td>
+            <td>地址：<input type="text" placeholder="请输入房源地址" name="address" id="address"></td>
+            <td>类型：<input type="text" placeholder="请输入房源类型" name="type" id="type"></td>
+            <%-- <td>
+                 <a href="../account/update/"+${account.username}>修改</a>
+             </td>--%>
+            <td><input type="submit" value="添加"></td>
+        </tr>
     </table>
 </form>
 <%--</c:forEach>--%>

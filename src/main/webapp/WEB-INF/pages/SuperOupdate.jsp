@@ -1,4 +1,4 @@
-<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+v<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
 
 
@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>demo</title>
+    <title>修改订单信息</title>
     <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
 
 </head>
@@ -21,20 +21,22 @@
 <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
 <%--<script  src="js/bootstrap.min.js"></script>--%>
 <script  src="<c:url value="/js/bootstrap.min.js"/>"></script>
-<h3>修改管理员信息</h3>
+<h3>修改房源信息</h3>
 
 <%--<c:forEach var="account" items="${update}">--%>
-<form  method="post" action="../update">
+<form  method="post" action="../update2">
     <table  class="table">
-    <tr>
-        <td><input type="text" value="${account.id}" name="id" hidden="hidden"></td>
-        <td>用户名：<input type="text" value="${account.username}" name="username"></td>
-        <td>密码：<input type="text" value="${account.password}" name="password"></td>
-       <%-- <td>
-            <a href="../account/update/"+${account.username}>修改</a>
-        </td>--%>
-        <td><input type="submit" value="修改"></td>
-    </tr>
+        <tr>
+            <td><input type="text" value="${order.oid}" name="oid" hidden="hidden"></td>
+            <td>金额：<input type="text" value="${order.name}" name="name"></td>
+            <td>尺寸：<input type="text" value="${order.hid}" name="hid"></td>
+            <td>状态：<input type="Date" value="${order.starttime}" name="starttime"></td>
+            <td>地址：<input type="Date" value="${order.endtime}" name="endtime"></td>
+            <%-- <td>
+                 <a href="../account/update/"+${account.username}>修改</a>
+             </td>--%>
+            <td><input type="submit" value="修改"></td>
+        </tr>
     </table>
 </form>
 <%--</c:forEach>--%>

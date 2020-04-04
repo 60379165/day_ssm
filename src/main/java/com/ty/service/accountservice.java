@@ -1,8 +1,9 @@
 package com.ty.service;
 
 import com.ty.domain.Account;
-import org.apache.ibatis.annotations.Select;
 
+
+import java.util.ArrayList;
 import java.util.List;
 
 public interface accountservice {
@@ -15,9 +16,10 @@ public interface accountservice {
     //登录功能
     String login(Account account);
     //修改用户信息
-    boolean update(Account account);
+    void update(Account account);
     //删除用户信息
     void delete(Account account);
-
-    Account findbyname(Account account);
+    void deleteAll(String[] ids);
+    Account findbyrid(Account account);
+    List<Account> findbyname(String username);
 }

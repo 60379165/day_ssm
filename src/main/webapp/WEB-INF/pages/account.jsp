@@ -17,7 +17,6 @@
 </head>
 <body>
 <script language="javascript">
-
     alert("登录失败，用户名或密码错误！！！！");
 </script>
 <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->

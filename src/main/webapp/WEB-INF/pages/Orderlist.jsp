@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>住房管理</title>
+    <title>demo</title>
     <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
     <style>
 
@@ -55,10 +55,10 @@
         }
         function replaceDoc()
         {
-            window.location.replace("http://localhost:8080/day_ssm_war_exploded/house/findAll")
+            window.location.replace("http://localhost:8080/day_ssm_war_exploded/order/findAll")
         }
-
     </script>
+
 </head>
 <body>
 <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
@@ -72,7 +72,6 @@
 <%--    <input type="text" name="username">--%>
 <%--    <input type="submit" value="查询用户名">--%>
 <%--</form>--%>
-
 <div class="container">
 
     <nav class="navbar navbar-default">
@@ -91,14 +90,14 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-<%--                    <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>--%>
-                    <li className=""><a id="id" class="active" href="../custom/findAll">租户管理</a></li>
-                    <li className=""><a  href="../order/findAll">租赁管理</a></li>
-                    <li className=""><a href="javascript:void(0);">房屋管理</a></li>
+                    <%--                    <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>--%>
+                    <li className=""><a class="active" href="../custom/findAll">租户管理</a></li>
+                    <li className=""><a  href="javascript:void(0);">租赁管理</a></li>
+                    <li className=""><a href="../house/findAll">房屋管理</a></li>
                 </ul>
-                <form class="navbar-form navbar-left" action="../house/findbyname" method="post">
+                <form class="navbar-form navbar-left" action="../order/findbyname" method="post">
                     <div class="form-group">
-                        <input type="text" name="search" class="form-control" placeholder="输入地址">
+                        <input type="text" class="form-control" name="search" placeholder="输入姓名">
                     </div>
                     <button type="submit" class="btn btn-default">筛选</button>
                 </form>
@@ -106,7 +105,7 @@
                     <li><a  href="javascript:void(0);" id="delSelected">删除选中</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="../addHouse.jsp">添加信息</a></li>
+                    <li><a href="../addOrder.jsp">添加信息</a></li>
                     <li class="dropdown">
                         <a href="../#">注销</a>
 
@@ -115,39 +114,37 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-    <h1 style="text-align: center">房屋信息列表</h1>
-
+    <h1 style="text-align: center">租赁信息列表</h1>
 <%--<div style="float: right;margin: 5px;">--%>
-<%--    <a class="btn btn-primary" href="${pageContext.request.contextPath}/addHouse.jsp">添加房源信息</a>--%>
-<%--    <a class="btn btn-primary" href="../custom/findAll">租户管理</a>--%>
-<%--    <a class="btn btn-primary" href="${pageContext.request.contextPath}/order/findAll">租赁管理</a>--%>
-<%--    <a class="btn btn-primary" href="javascript:void(0);" id="delSelected">删除选中</a>--%>
+<%--    <a class="btn btn-primary" href="${pageContext.request.contextPath}/addOrder.jsp">添加订单信息</a>--%>
+<%--    <a class="btn btn-primary" href="${pageContext.request.contextPath}/house/findAll">房源管理</a>--%>
+<%--    <a class="btn btn-primary" href="${pageContext.request.contextPath}/custom/findAll">租户管理</a>--%>
 <%--</div>--%>
-<form  id = "form" action="${pageContext.request.contextPath}/house/deleteAll" method="post">
+<form id="form" action="../order/deleteAll" method="post">
     <table border="1" class="table table-bordered table-hover">
         <tr>
             <th><input type="checkbox" id="firstCb"></th>
             <th>序号</th>
-                        <th>金额</th>
-                        <th>尺寸</th>
-                        <th>状态</th>
-                        <th>地址</th>
-                        <th>类型</th>
-                        <th>操作</th>
+            <th>租户名</th>
+            <th>房屋编号</th>
+            <th>入住时间</th>
+            <th>截止时间</th>
+            <th>操作</th>
+
         </tr>
         <c:forEach items="${list}" var="a" varStatus="s">
             <tr>
-                <td><input type="checkbox" name="hid" value="${a.hid}"></td>
+                <td><input type="checkbox" name="hid" value="${a.oid}"></td>
                 <td>${s.count}</td>
-                                    <td> ${a.price}</td>
-                                    <td>${a.size}</td>
-                                    <td>${a.state}</td>
-                                    <td> ${a.address}</td>
-                                    <td>${a.type}</td>
-                                    <td><a href="../house/delete/${a.hid}">删除</a>
-                                        <a href="../house/findbyid/${a.hid}">修改</a></td>
+                <td> ${a.name}</td>
+                <td>${a.hid}</td>
+                <td>${a.starttime}</td>
+                <td> ${a.endtime}</td>
+                <td><a href="../order/delete/${a.oid}">删除</a>
+                    <a href="../order/findbyid/${a.oid}">修改</a></td>
             </tr>
         </c:forEach>
+
     </table>
 </form>
 </div>

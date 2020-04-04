@@ -2,6 +2,7 @@ package com.ty.service.impl;
 
 import com.ty.dao.AccountDao;
 import com.ty.domain.Account;
+import com.ty.domain.Suser;
 import com.ty.service.accountservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import java.util.List;
 public class serviceimpl implements accountservice {
     @Autowired
     private AccountDao accountDao;
+
 
     public List<Account> findall() {
         System.out.println("业务层:findall");
@@ -35,10 +37,9 @@ public class serviceimpl implements accountservice {
     }
 
     @Override
-    public boolean update(Account account) {
-       boolean a = accountDao.update(account);
-        System.out.println(a);
-        return a;
+    public void update(Account account) {
+       accountDao.update(account);
+
     }
 
     @Override
@@ -48,7 +49,29 @@ public class serviceimpl implements accountservice {
     }
 
     @Override
-    public Account findbyname(Account account) {
-        return accountDao.findbyname(account);
+    public void deleteAll(String[] ids) {
+        if (ids != null && ids.length > 0) {
+            String[] var2 = ids;
+            int var3 = ids.length;
+
+            for(int var4 = 0; var4 < var3; ++var4) {
+                String id = var2[var4];
+                this.accountDao.deleteAll(Integer.parseInt(id));
+            }
+        }else{
+            System.out.println("wu");
+        }
     }
+
+    @Override
+    public Account findbyrid(Account account) {
+        return accountDao.findbyrid(account);
+    }
+
+    @Override
+    public List<Account> findbyname(String username) {
+        return accountDao.findbyname(username);
+    }
+
+
 }
